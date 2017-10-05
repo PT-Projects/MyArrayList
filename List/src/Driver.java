@@ -1,42 +1,28 @@
 public class Driver {
     public static void main(String[] args) {
 
-        MyArrayList<Integer> al = new MyArrayList<>();
+        MyArrayList al = new MyArrayList();
 
-        MyArrayList<Integer> al2 = new MyArrayList<>();
+        MyArrayList al2 = new MyArrayList();
 
-        System.out.println(al.size());
-
-        for (int x = 0; x < 10; x++){
+        for (int x = 0; x < 15; x++){
             al.add(x);
+            al2.add(x);
         }
 
-        System.out.println(al.size());
+        System.out.println("1: " + al.toString());
 
-        System.out.println(al.toString());
+        System.out.println("2: " + al2.toString());
 
-        try {
-            al.remove(11);
-        }
-        catch (IndexOutOfBoundsException exc){
-            System.out.println(exc);
-        }
+        MyArrayList list = new MyArrayList();
 
-        al.remove(2);
+        list.addAll(al);
 
-        System.out.println(al.remove(4));
+        System.out.println("1+1: " + list.toString());
 
-        System.out.println(al.set(0,100));
+        al.addAll(al);
 
-        System.out.println(al.toString());
-
-        System.out.println(al.size());
-
-        al2.addAll(al);
-
-        System.out.println(al2.toString());
-
-        System.out.println(al2.size());
+        System.out.println("1+1: " + al.toString());
 
     }
 }

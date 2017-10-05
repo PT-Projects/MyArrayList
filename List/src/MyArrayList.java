@@ -1,4 +1,5 @@
 import java.util.AbstractList;
+import java.util.Arrays;
 import java.util.Collection;
 
 public class MyArrayList<E> extends AbstractList<E>
@@ -79,7 +80,7 @@ public class MyArrayList<E> extends AbstractList<E>
         }
 
 	}
-	
+
 	@Override
 	/**
 	 * Inserts the specified element at the specified position in this list.
@@ -89,11 +90,16 @@ public class MyArrayList<E> extends AbstractList<E>
 	 */
     public void add(int index, E element) {
 
+    	if (size > capacity-1){
+    		capacity = capacity*2;
+    		theData = Arrays.copyOf(theData,capacity);
+		}
+
         try{
             System.arraycopy(theData,index,theData,index+1,size-index);
             theData[index] = element;
             size++;
-        }
+		}
         catch (Exception exception){
             throw new IndexOutOfBoundsException("Index: "+index+", Size: "+size);
         }
