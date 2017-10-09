@@ -42,6 +42,9 @@ public class MyArrayList<E> extends AbstractList<E>
 	public E get(int index) {
 
 	    try {
+	    	if (index >= size){
+	    		return theData[index+10];
+			}
 	        return theData[index];
         }
         catch (Exception exception){
