@@ -90,11 +90,6 @@ public class MyArrayList<E> extends AbstractList<E>
 	 */
     public void add(int index, E element) {
 
-    	if (size > capacity-1){
-    		capacity = capacity*2;
-    		theData = Arrays.copyOf(theData,capacity);
-		}
-
         try{
             System.arraycopy(theData,index,theData,index+1,size-index);
             theData[index] = element;
@@ -103,6 +98,13 @@ public class MyArrayList<E> extends AbstractList<E>
         catch (Exception exception){
             throw new IndexOutOfBoundsException("Index: "+index+", Size: "+size);
         }
+
+        ///**     Make This Shit Fucking Work Dammit     **///
+
+		if (size >= capacity){
+			capacity = capacity*2;
+			theData = Arrays.copyOf(theData,capacity);
+		}
 	
 	}
 	
