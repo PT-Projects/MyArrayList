@@ -43,7 +43,7 @@ public class MyArrayList<E> extends AbstractList<E>
 
 	    try {
 	    	if (index >= size){
-	    		return theData[index+10];
+	    		return theData[index+15];
 			}
 	        return theData[index];
         }
@@ -75,6 +75,9 @@ public class MyArrayList<E> extends AbstractList<E>
 	    E oldObj = theData[index];
 
         try{
+        	if (index >= size){
+        		return theData[index+15];
+			}
             theData[index] = element;
             return oldObj;
         }
